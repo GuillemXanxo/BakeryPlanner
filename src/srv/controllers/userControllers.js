@@ -26,14 +26,15 @@ const userLogin = async (req, res, next) => {
 };
 
 const userRegister = async (req, res, next) => {
-  const { name, email, password, createdAt } = req.body;
+  const { name, email, password } = req.body;
   const fetchedUser = await User.findOne({ name });
-  if (!name || !password || !email || !createdAt || fetchedUser) {
+  if (!name || !password || !email || fetchedUser) {
     const errorWPW = new Error(`Something went wrong while registering`);
     errorWPW.status = 400;
     return next(errorWPW);
   }
   const encryptedPasword = await encrypt(password);
+  const createdAt = new Date().getUTCDate();
   await User.create({
     name,
     email,
