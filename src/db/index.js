@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 
 const connectDB = (connectionString) =>
   new Promise((resolve, reject) => {
+    mongoose.set("strictQuery", false);
     mongoose.set("returnOriginal", false);
     mongoose.set("toJSON", {
       virtuals: true,
