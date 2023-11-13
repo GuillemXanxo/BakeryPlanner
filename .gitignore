@@ -1,0 +1,6 @@
+node_modules
+.DC_Store
+.vscode
+.scannerwork
+.env
+coverage
