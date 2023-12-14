@@ -1,4 +1,4 @@
-const debug = require("debug")("pallars:server");
+const debug = require("debug")("bakeryplanner:server");
 const chalk = require("chalk");
 
 const serverUp = (port, app) =>

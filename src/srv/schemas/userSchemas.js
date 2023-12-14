@@ -5,7 +5,6 @@ const registerValidation = {
     name: Joi.string().required(),
     email: Joi.string().required(),
     password: Joi.string().required(),
-    createdAt: Joi.date().required(),
   }),
 };
 

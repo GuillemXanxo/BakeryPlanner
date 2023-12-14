@@ -13,13 +13,12 @@ const RecipePRSchema = new Schema({
     required: true,
   },
   createdAt: {
-    type: Date,
+    type: String,
     required: true,
   },
-  recipePR: {
+  recipeGR: {
     type: Schema.Types.ObjectId,
     ref: "RecipeGR",
-    required: true,
   },
   ingredients: [
     {

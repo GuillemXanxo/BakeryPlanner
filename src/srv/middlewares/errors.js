@@ -1,5 +1,5 @@
 const chalk = require("chalk");
-const debug = require("debug")("pallars:errors");
+const debug = require("debug")("bakeryplanner:errors");
 
 const notFoundError = (req, res) => {
   debug(chalk.red(`Error: 404`));

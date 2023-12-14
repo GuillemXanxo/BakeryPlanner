@@ -1,11 +1,14 @@
 require("dotenv").config();
 const express = require("express");
 const { validate } = require("express-validation");
-const { userLogin, userRegister } = require("../controllers/userControllers");
+const {
+  userLogin,
+  userRegister,
+} = require("../../controllers/userControllers");
 const {
   registerValidation,
   loginValidation,
-} = require("../schemas/userSchemas");
+} = require("../../schemas/userSchemas");
 
 const router = express.Router();
 

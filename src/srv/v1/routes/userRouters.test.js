@@ -2,9 +2,9 @@ require("dotenv").config();
 const { MongoMemoryServer } = require("mongodb-memory-server");
 const mongoose = require("mongoose");
 const request = require("supertest");
-const connectDB = require("../../db");
-const Usuari = require("../../db/models/User");
-const { app } = require("..");
+const connectDB = require("../../../db");
+const Usuari = require("../../../db/models/User");
+const { app } = require("../..");
 
 let mongoServer;
 
@@ -33,7 +33,7 @@ afterAll(() => {
   mongoServer.stop();
 });
 
-describe("Given an endpoint /user/login", () => {
+describe("Given an endpoint /user/access/login", () => {
   describe("When it receives a post request with body {name: 'gxanxo': password:'guillemito'}", () => {
     test("Then it should respond with status 200 and a json with a token", async () => {
       const User = {
@@ -43,7 +43,7 @@ describe("Given an endpoint /user/login", () => {
 
       const {
         body: { token },
-      } = await request(app).post("/user/login").send(User).expect(200);
+      } = await request(app).post("/user/access/login").send(User).expect(200);
 
       expect(token).toBeTruthy();
     });
@@ -57,7 +57,7 @@ describe("Given an endpoint /user/login", () => {
       };
 
       const { body } = await request(app)
-        .post("/user/login")
+        .post("/user/access/login")
         .send(wrongUsuari)
         .expect(401);
 

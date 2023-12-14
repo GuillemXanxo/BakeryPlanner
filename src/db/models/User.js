@@ -16,7 +16,7 @@ const UserSchema = new Schema({
     required: true,
   },
   createdAt: {
-    type: Date,
+    type: String,
     required: true,
   },
   recipes: [
@@ -27,6 +27,6 @@ const UserSchema = new Schema({
   ],
 });
 
-const User = model("User", UserSchema, "users");
+const User = model("User", UserSchema, "Transportat-Pallars.Users");
 
 module.exports = User;

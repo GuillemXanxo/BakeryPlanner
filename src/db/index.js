@@ -1,4 +1,4 @@
-const debug = require("debug")("pallars:dbConnection");
+const debug = require("debug")("bakeryplanner:dbConnection");
 const chalk = require("chalk");
 const mongoose = require("mongoose");
 

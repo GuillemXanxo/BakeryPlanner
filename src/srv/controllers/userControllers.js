@@ -27,6 +27,7 @@ const userLogin = async (req, res, next) => {
 
 const userRegister = async (req, res, next) => {
   const { name, email, password } = req.body;
+  console.log("DATOS: " + name + " " + email + " " + password);
   const fetchedUser = await User.findOne({ name });
   if (!name || !password || !email || fetchedUser) {
     const errorWPW = new Error(`Something went wrong while registering`);
@@ -34,7 +35,8 @@ const userRegister = async (req, res, next) => {
     return next(errorWPW);
   }
   const encryptedPasword = await encrypt(password);
-  const createdAt = new Date().getUTCDate();
+  const createdAt = new Date();
+  console.log("DATOS: " + encryptedPasword + " " + createdAt);
   await User.create({
     name,
     email,
